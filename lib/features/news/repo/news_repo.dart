@@ -10,7 +10,7 @@ class NewsRepo {
 
   //fetch news and handle response
   Future<Either<NewsModel, Failure>> fetchNews() async {
-    final response = await _client.getRequest(path: "", shouldCache: true);
+    final response = await _client.getRequest(shouldCache: true);
     return getResponseData(response)
         .fold((l) => Left(NewsModel.fromJson(l)), (r) => Right(r));
   }
