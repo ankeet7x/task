@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taskapp/app/helpers/route_handler.dart';
-import 'package:taskapp/app/light_theme.dart';
+import 'package:taskapp/app/themes/light_theme.dart';
 import 'package:taskapp/features/news/bloc/news_bloc_bloc.dart';
 import 'package:taskapp/features/news/views/news_screen.dart';
 import 'package:taskapp/injector.dart';
@@ -11,6 +11,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //load dot env to access hidden keys
   await dotenv.load(fileName: ".env");
   //call injector at base
   await setupLocator();

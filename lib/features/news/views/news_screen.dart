@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taskapp/app/ui/news_app_bar.dart';
 import 'package:taskapp/features/news/bloc/news_bloc_bloc.dart';
+import 'package:taskapp/features/news/widgets/news_card.dart';
 
 class NewsScreen extends StatefulWidget {
   static const String route = "/news-screen";
@@ -20,6 +22,14 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: NewsAppBar(
+        title: Text(
+          "News App",
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        showNavigationButton: false,
+        centerTitle: true,
+      ),
       body: BlocBuilder<NewsBlocBloc, NewsBlocState>(
         builder: (context, state) {
           if (state is NewsLoadingState) {
@@ -34,9 +44,7 @@ class _NewsScreenState extends State<NewsScreen> {
               child: ListView.builder(
                 itemCount: state.news.articles?.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(state.news.articles?[index].title ?? ""),
-                  );
+                  return NewsCard(article: state.news.articles![index]);
                 },
               ),
             );

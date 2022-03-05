@@ -11,7 +11,7 @@ class NewsModel {
     if (json['articles'] != null) {
       articles = <Articles>[];
       json['articles'].forEach((v) {
-        articles!.add(new Articles.fromJson(v));
+        articles!.add(Articles.fromJson(v));
       });
     }
   }
