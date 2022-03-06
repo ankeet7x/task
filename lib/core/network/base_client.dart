@@ -7,21 +7,21 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class NewsAppBaseClient {
   Future getRequest(
-      {String baseUrl = ApiEndPoints.baseUrl,
-      String path = '',
+      {String url = ApiEndPoints.usBusiness,
+      String apiKey = '',
       bool shouldCache = false}) async {
     http.Response? response;
     try {
-      path = dotenv.get(AppConstants.apiKey);
+      apiKey = dotenv.get(AppConstants.apiKey);
       //http call
-      response = await http.get(Uri.parse(baseUrl + path));
+      response = await http.get(Uri.parse(url + apiKey));
       //conditional caching with bool value to cache only endpoints which is neccessary
       if (response.statusCode == 200 && shouldCache) {
-        locator<SharedPreferences>().setString(path, response.body);
+        locator<SharedPreferences>().setString(url + apiKey, response.body);
       }
     } catch (e) {
       //on error return cache value if it is available
-      final cacheValue = locator<SharedPreferences>().getString(path);
+      final cacheValue = locator<SharedPreferences>().getString(apiKey);
       if (cacheValue != null) {
         response = http.Response(cacheValue, 200);
       }

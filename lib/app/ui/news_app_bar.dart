@@ -40,9 +40,9 @@ class _NewsAppBarState extends State<NewsAppBar> {
             ? Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back,
-                    color: Colors.black,
+                    color: Theme.of(context).primaryColor,
                     size: 28,
                   ),
                   onPressed: () {

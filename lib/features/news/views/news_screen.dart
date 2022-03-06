@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taskapp/app/ui/news_app_bar.dart';
+import 'package:taskapp/app/ui/shimmer.dart';
 import 'package:taskapp/features/news/bloc/news_bloc_bloc.dart';
 import 'package:taskapp/features/news/widgets/news_card.dart';
 

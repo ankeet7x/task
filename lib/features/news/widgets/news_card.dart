@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taskapp/app/constants/app_colors.dart';
 import 'package:taskapp/app/helpers/date_formatter.dart';
 import 'package:taskapp/features/description/views/news_description_view.dart';
 import 'package:taskapp/features/news/models/news_model.dart';
@@ -36,30 +37,37 @@ class NewsCard extends StatelessWidget {
             elevation: 0,
             child: Column(
               children: [
-                // SizedBox(height: 5),7
                 Container(
                   height: 170,
                   width: double.infinity,
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  child: CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: article.urlToImage ?? "",
-                    cacheKey: article.urlToImage?.split("?")[0],
-                    errorWidget: (context, String str, url) {
-                      return Icon(
-                        Icons.error,
-                        color: Theme.of(context).errorColor,
-                      );
-                    },
+                  margin: EdgeInsets.symmetric(horizontal: 16.h),
+                  child: Hero(
+                    tag: article.urlToImage!,
+                    child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: article.urlToImage ?? "",
+                      cacheKey: article.urlToImage?.split("?")[0],
+                      errorWidget: (context, String str, url) {
+                        return Icon(
+                          Icons.error,
+                          color: Theme.of(context).errorColor,
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  margin:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(article.title ?? ""),
-                      Text(article.description ?? ""),
+                      Text(
+                        article.title ?? "",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      Text(article.description ?? "",
+                          style: Theme.of(context).textTheme.bodyText2),
                       SizedBox(height: 5.h),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,14 +76,16 @@ class NewsCard extends StatelessWidget {
                             padding: EdgeInsets.all(8.h),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(9.r),
-                                color: Colors.red),
+                                border: Border.all(
+                                    color: Theme.of(context).primaryColor,
+                                    width: 1)),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Icon(
                                   Icons.timer_rounded,
                                   size: 14.sp,
-                                  color: Colors.white,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                                 SizedBox(
                                   width: 8.w,
@@ -87,7 +97,7 @@ class NewsCard extends StatelessWidget {
                                   style: Theme.of(context)
                                       .textTheme
                                       .caption
-                                      ?.copyWith(color: Colors.white),
+                                      ?.copyWith(color: AppColors.primaryColor),
                                 ),
                               ],
                             ),
