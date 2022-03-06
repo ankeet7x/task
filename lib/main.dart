@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   title: "News app",
                   onGenerateRoute: RouteGenerator.generateRoutes,
-                  scrollBehavior: CupertinoScrollBehavior(),
+                  scrollBehavior: const CupertinoScrollBehavior(),
                   initialRoute: NewsScreen.route,
                   theme: lightTheme,
                   builder: (context, widget) {

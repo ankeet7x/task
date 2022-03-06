@@ -53,7 +53,7 @@ class _NewsScreenState extends State<NewsScreen> {
               ),
             );
           }
-          return SizedBox();
+          return const SizedBox();
         },
       ),
     );
