@@ -10,13 +10,13 @@ class RouteGenerator {
     var arguments = settings.arguments;
     switch (settings.name) {
       case NewsScreen.route:
-        return createRoute(NewsScreen());
+        return createRoute(const NewsScreen());
       case NewsDescriptionView.route:
         return createRoute(NewsDescriptionView(
           article: arguments as Articles,
         ));
       default:
-        return createRoute(NewsScreen());
+        return createRoute(const NewsScreen());
     }
   }
 }

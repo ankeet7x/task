@@ -11,7 +11,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //load dot env to access hidden keys
+  //load dot env to access hidden api key
   await dotenv.load(fileName: ".env");
   //call injector at base
   await setupLocator();

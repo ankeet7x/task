@@ -34,8 +34,11 @@ class _NewsScreenState extends State<NewsScreen> {
       body: BlocBuilder<NewsBlocBloc, NewsBlocState>(
         builder: (context, state) {
           if (state is NewsLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return const ShimmerView();
+              },
             );
           } else if (state is NewsLoadedState) {
             return RefreshIndicator(

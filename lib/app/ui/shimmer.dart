@@ -11,30 +11,33 @@ class ShimmerView extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
             width: double.infinity,
-            height: 200.h,
+            // height: 200.h,
             child: Shimmer.fromColors(
-              baseColor: Colors.grey,
-              highlightColor: Colors.white,
-              child: Card(
-                  child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 170.h,
-                  ),
-                  SizedBox(height: 5.h),
-                  Container(
-                    width: double.infinity,
-                    height: 15.h,
-                  ),
-                  SizedBox(height: 5.h),
-                  Container(
-                    width: double.infinity,
-                    height: 15.h,
-                  )
-                ],
-              )),
-            )));
-    ;
+                highlightColor: const Color.fromARGB(255, 201, 200, 200),
+                baseColor: Colors.white,
+                child: Column(
+                  children: [
+                    Card(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 180.h,
+                      ),
+                    ),
+                    SizedBox(height: 1.h),
+                    Card(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 30.h,
+                      ),
+                    ),
+                    SizedBox(height: 1.h),
+                    Card(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 30.h,
+                      ),
+                    )
+                  ],
+                ))));
   }
 }

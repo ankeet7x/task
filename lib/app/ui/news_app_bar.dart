@@ -23,7 +23,7 @@ class NewsAppBar extends StatefulWidget with PreferredSizeWidget {
   @override
   _NewsAppBarState createState() => _NewsAppBarState();
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 class _NewsAppBarState extends State<NewsAppBar> {
@@ -50,6 +50,6 @@ class _NewsAppBarState extends State<NewsAppBar> {
                   },
                 ),
               )
-            : Text(''));
+            : const Text(''));
   }
 }

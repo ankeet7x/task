@@ -35,7 +35,7 @@ class NewsDescriptionView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: 181.h,
                 width: 351.w,
                 child: Hero(
