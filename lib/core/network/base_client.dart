@@ -21,7 +21,7 @@ class NewsAppBaseClient {
       }
     } catch (e) {
       //on error return cache value if it is available
-      final cacheValue = locator<SharedPreferences>().getString(apiKey);
+      final cacheValue = locator<SharedPreferences>().getString(url + apiKey);
       if (cacheValue != null) {
         response = http.Response(cacheValue, 200);
       }
